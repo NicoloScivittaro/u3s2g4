@@ -13,28 +13,28 @@ export class PhotoListComponent implements OnInit {
 
   constructor(private photoService: PhotoService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadPhotos();
     this.photoService.favoriteCount$.subscribe(count => {
       this.favoriteCount = count;
     });
   }
 
-  loadPhotos(): void {
+  loadPhotos() {
     this.photoService.getPhotos().subscribe(
       (data) => this.photos = data,
       (error) => this.errorMessage = error
     );
   }
 
-  deletePhoto(id: number): void {
+  deletePhoto(id: number) {
     this.photoService.deletePhoto(id).subscribe(
       () => this.photos = this.photos.filter(photo => photo.id !== id),
       (error) => this.errorMessage = error
     );
   }
 
-  likePhoto(): void {
+  likePhoto() {
     this.photoService.incrementFavoriteCount();
   }
 }
