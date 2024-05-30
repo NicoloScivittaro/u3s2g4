@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Photo List</h1>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <div class="row">
+    <div class="col-12 mb-3">
+      <h3>Total Likes: {{ favoriteCount }}</h3>
+    </div>
+    <div *ngFor="let photo of photos" class="col-md-4 mb-4">
+      <div class="card">
+        <img [src]="photo.thumbnailUrl" class="card-img-top" alt="{{ photo.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ photo.title }}</h5>
+          <button (click)="likePhoto()" class="btn btn-primary">Mi Piace</button>
+          <button (click)="deletePhoto(photo.id)" class="btn btn-danger">Cancella</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
