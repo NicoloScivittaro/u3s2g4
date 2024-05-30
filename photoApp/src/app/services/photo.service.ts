@@ -38,7 +38,7 @@ export class PhotoService {
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
-    console.error('An error occurred:', error.message);
-    return throwError('Something went wrong; please try again later.');
+    console.error('errore=orrore:', error.message);
+    return throwError('riprova.');
   }
 }
